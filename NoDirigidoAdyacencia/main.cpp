@@ -10,7 +10,7 @@ Héctor Miranda García   A01658845
 #include <vector>
 #include <algorithm>
 using namespace std;
-// Here import hashtable class file
+#include "hashTable.h"
 #include "grafo.h"
 
 int main(){
