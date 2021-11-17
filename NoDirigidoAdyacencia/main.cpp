@@ -10,6 +10,7 @@ Héctor Miranda García   A01658845
 #include <vector>
 #include <algorithm>
 using namespace std;
+#include "linkedlist.h"
 #include "hashTable.h"
 #include "grafo.h"
 
