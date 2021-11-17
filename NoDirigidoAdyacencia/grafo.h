@@ -1,6 +1,6 @@
 /*
 ===========================================================
-NOT DIRECTED GRAPH WITH ADYENCY LIST - CLASS
+UNDIRECTED GRAPH WITH ADYENCY LIST - CLASS
 
 Héctor Miranda García   A01658845
 ===========================================================

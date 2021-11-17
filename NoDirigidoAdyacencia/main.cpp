@@ -1,6 +1,6 @@
 /*
 ===========================================================
-NOT DIRECTED GRAPH WITH ADYENCY LIST - MAIN
+UNDIRECTED GRAPH WITH ADYENCY LIST - MAIN
 
 Héctor Miranda García   A01658845
 ===========================================================
