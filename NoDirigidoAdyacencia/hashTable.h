@@ -45,7 +45,10 @@ class Hashtable{
     /*
     Builder
     */
-      Hashtable(int size = 20){                                       //O(1)
+      Hashtable(){
+        this->size = 0;
+      }
+      Hashtable(int size){                                       //O(1)
         this->size = size;                                            //O(1)
         tabla = new HashPair<K,T>[size];  // hashpair array creation
         for(int i = 0; i < size; i++) tabla[i] = HashPair<K,T>();     //O(n)
@@ -151,6 +154,12 @@ class Hashtable{
       // ================================
       // additional methods for 
       // ================================
+      T get_record(K k){
+        return tabla[fh(k)].value;
+      }
+      void update_record(K k, T new_record){
+        tabla[fh(k)].value = new_record;
+      }
       int no_elements_in(){                                                             //O(1)
         int counter = 0;                                                                //O(1)
         for(int i = 0; i < size; i++) if(tabla[i].value != null_hash.value) counter ++; //O(n)
