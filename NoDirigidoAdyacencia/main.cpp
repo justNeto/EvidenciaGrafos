@@ -35,5 +35,6 @@ int main(){
     cout << "Adding A-B edge: " <<grafo.add_edge('A', 'B') <<endl;
     cout << "key row A list: "; grafo.print_row('A');
     cout << "key row B list: "; grafo.print_row('B');
+    cout << "adding vertex E: " << grafo.add_vertex('E') << endl;
     return 0;
 }

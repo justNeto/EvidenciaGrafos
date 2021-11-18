@@ -81,5 +81,10 @@ class GraphAL{
         adj_list.add_value_to_row(key_two, key_one);
         return true;
     }
+    bool add_vertex(N k){
+        LinkedList<N> empty_linked_list;
+        adj_list.put(k, empty_linked_list);
+        return true;
+    }
 
 };
