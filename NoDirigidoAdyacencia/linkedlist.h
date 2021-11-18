@@ -206,12 +206,11 @@ otros métodos*/
     quiere encontrar en la lista, como parámetro*/
     bool contains(T data){
       NodeLL<T> * auxiliar = head;                                                            //O(1)
-      bool result = false;                                                                 //O(1)
       while(auxiliar->next != NULL){                                                       //O(n)
-        if(auxiliar->data == data) result = true;                                          //O(1)
+        if(auxiliar->data == data) return true;                                          //O(1)
         auxiliar = auxiliar->next;                                                        //O(1)
-      } 
-      return result;                                                                      //O(1)
+      }
+      return false;                                                                      //O(1)
     }
 
 
@@ -232,6 +231,18 @@ otros métodos*/
       return auxiliar->data;                                                                //O(1)
     }
 
+    bool contains_value(T dat){
+      NodeLL<T> * auxiliar = head;
+      if(auxiliar == NULL) return false;
+      if(auxiliar->data == dat) return true;
+      cout << "not found 2" << endl;
+      while(auxiliar->next != NULL){
+        auxiliar = auxiliar->next;
+        if(auxiliar->data == dat) return true;
+      }
+      return false;
+    }
+
     /*El método “index of” nos permite obtener la 
     localización por índice de un valor que queramos 
     encontrar en la lista. Recibe el dato del que se quiere 
@@ -240,7 +251,7 @@ otros métodos*/
       if(contains(value) != true) throw value; // excception not found value                //O(1)
       NodeLL<T> * auxiliar = head;                                                            //O(1)
 
-      int index;                                                                            //O(1)
+      int index = 2;                                                                            //O(1)
       for(int i = 0; i < size(); i ++){                                                     //O(n)
         if(auxiliar->data == value) index = i;                                              //O(1)
         auxiliar = auxiliar->next;                                                          //O(1)

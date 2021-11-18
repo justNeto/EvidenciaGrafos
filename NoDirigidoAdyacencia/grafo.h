@@ -61,23 +61,24 @@ class GraphAL{
         for(int i = 0; i < number_vertices-1;i++) adj_list.put(keys[i], empty_linked_list);
         return true;
     }
+    bool check_vertex(N k){
+        return adj_list.contains_key(k);
+    }
+    LinkedList<N> get_row(N k){
+        return adj_list.get(k);
+    }
     bool empty_row(N k){
         if(adj_list.get(k).is_empty()) return true;
         return false;
     }
-    bool live_edge(N key_one){
-        if(adj_list.get_record(key_one).contains(key_one)) return true;
-        return false;
+    void print_row(N k){
+        adj_list.get(k).print();
     }
     bool add_edge(N key_one, N key_two){
-        if(adj_list.contains_key(key_one)!= false) return false;
-        if(live_edge(key_one)) return true;
-        LinkedList<N> k_one = adj_list.get_record(key_one);
-        k_one.addLast(key_two);
-        adj_list.update_record(key_one, k_one);
-        LinkedList<N> k_two = adj_list.get_record(key_two);
-        k_one.addLast(key_one);
-        adj_list.update_record(key_one, k_two);
+        if(adj_list.contains_key(key_one)== false) return false;
+        if(adj_list.live_edge(key_one, key_two)==true) return true;
+        adj_list.add_value_to_row(key_one, key_two);
+        adj_list.add_value_to_row(key_two, key_one);
         return true;
     }
 

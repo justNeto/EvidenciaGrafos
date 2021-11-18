@@ -154,11 +154,12 @@ class Hashtable{
       // ================================
       // additional methods for 
       // ================================
-      T get_record(K k){
-        return tabla[fh(k)].value;
+      bool live_edge(K k1, K k2){
+        return tabla[fh(k1)].value.contains_value(k2);
       }
-      void update_record(K k, T new_record){
-        tabla[fh(k)].value = new_record;
+      bool add_value_to_row(K k, K to_add){
+        tabla[fh(k)].value.addFirst(to_add);
+        return true;
       }
       int no_elements_in(){                                                             //O(1)
         int counter = 0;                                                                //O(1)

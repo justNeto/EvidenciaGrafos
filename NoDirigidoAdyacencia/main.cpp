@@ -10,6 +10,7 @@ https://www.youtube.com/watch?v=DBRW8nwZV-g&ab_channel=freeCodeCamp.org
 ===========================================================
 */
 #include <iostream>
+#include <cstddef>
 using namespace std;
 #include <vector>
 #include <algorithm>
@@ -17,6 +18,8 @@ using namespace std;
 #include "linkedlist.h"
 #include "hashTable.h"
 #include "grafo.h"
+
+
 
 int main(){
     /*
@@ -26,7 +29,11 @@ int main(){
 
     GraphAL<char> grafo(4);
     int vertex[4] = {'A', 'B', 'C', 'D'};
-    grafo.set_vertices(vertex);
-    grafo.add_edge('A', 'B');
+    cout << "creating vertices: "<< grafo.set_vertices(vertex) << endl;
+    cout << "live vertex: " << grafo.check_vertex('A')<< endl;
+    cout << "key row list: " ; grafo.print_row('A'); cout<< "========" <<endl;
+    cout << "Adding A-B edge: " <<grafo.add_edge('A', 'B') <<endl;
+    cout << "key row A list: "; grafo.print_row('A');
+    cout << "key row B list: "; grafo.print_row('B');
     return 0;
 }
