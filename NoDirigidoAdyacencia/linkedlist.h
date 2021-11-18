@@ -9,13 +9,14 @@ Misael Chavez Ramos-A01659759
 =====================================================
 */
 
-template<typename T>
+
 /*
 Esta es la clase “NodeLL”, es la que nos permite crear diferentes 
 NodeLLs de manera sencilla. Como se puede observar según sus 
 atributos, esta clase guarda la dirección del siguiente elemento o 
 NodeLL de la lista y el dato que se desea guardar.
 */
+template<typename T>
 class NodeLL{
     private:
         T data;
@@ -75,7 +76,7 @@ class LinkedList{
     está siendo agregado.
     */
     void addFirst(T dato){
-      NodeLL<T> * nuevo = new NodeLL(dato);
+      NodeLL<T> * nuevo = new NodeLL<T>(dato);
       if(head == NULL){// si es vacía la lista                                            O(1)
         head = last = nuevo;                                                            //O(1)
         head=nuevo;
@@ -111,7 +112,7 @@ class LinkedList{
     */
     void addLast(T dato){
       // creando nuevo NodeLL 
-      NodeLL<T> * nuevo = new NodeLL(dato);                                                 //O(1)
+      NodeLL<T> * nuevo = new NodeLL<T>(dato);                                                 //O(1)
       nuevo->next = NULL;                                                               //O(1)
 
       // Checar si la lista esta vacia
@@ -175,7 +176,7 @@ class LinkedList{
           addFirst(dato);
           return;                                                                           //O(1)
         }
-        NodeLL<T> * nuevo = new NodeLL(dato);                                                 //O(1)
+        NodeLL<T> * nuevo = new NodeLL<T>(dato);                                                 //O(1)
         nuevo->data = dato;                                                               //O(1)
         nuevo->next = NULL;                                                              //O(1)
 
