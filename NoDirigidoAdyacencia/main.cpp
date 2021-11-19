@@ -53,6 +53,6 @@ int main(){
     grafo.add_edge('C', 'D');
     grafo.add_edge('C', 'R');
     cout << grafo << endl;
-    cout << grafo.bfs('D') << endl;
+    cout << grafo.bfs('A') << endl;
     return 0;
 }

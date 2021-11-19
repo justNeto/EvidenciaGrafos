@@ -92,27 +92,117 @@ class GraphAL{
 
         LinkedList<N> queue = LinkedList<N>();  // queue to be returned
         LinkedList<N> vertex_list = LinkedList<N>();
-        LinkedList<N> adjacent_vertices = LinkedList<N>();
+        LinkedList<N> adjacent_list = LinkedList<N>();
 
         queue.push(k);
-
-        N v, f;
-
+        
+        int current_vertex;
         while(!queue.is_empty()){
+            current_vertex = queue.pop();
+            if(!vertex_list.contains(current_vertex))vertex_list.push(current_vertex);
 
-            v = queue.pop();
-            vertex_list.push(v);
-
-            adjacent_vertices = get_row(v);
-            for(int i = 0; i < adjacent_vertices.length(); ++i){
-                f = adjacent_vertices.pop();
-                if(!vertex_list.contains(f)) queue.push(f);
+            adjacent_list = adj_list.get(current_vertex);
+            for(int i = 0; i < adjacent_list.length(); i++){
+                if(!vertex_list.contains(adjacent_list.get(i))) queue.push(adjacent_list.get(i));
             }
         }
 
         return vertex_list;
 
     }
+
+    // =============================================
+    // LinkedList<N> bfs(N k){
+    //     LinkedList<N> visited = LinkedList<N>();
+    //     LinkedList<N> queue = LinkedList<N>();
+    //     LinkedList<N> adjacent_nodes = LinkedList<N>();
+
+    //     queue.push(k);
+    //     // visited.push(k);
+    //     // adjacent_nodes = adj_list.get(k);
+    //     // for(int i = 0; i <= adjacent_nodes.length(); i++) queue.push(adjacent_nodes.pop());
+    //     N current_vertex;
+    //     while (!queue.is_empty()){
+    //         current_vertex = queue.pop();
+    //         if(!visited.contains(current_vertex)){
+    //             visited.push(current_vertex);
+    //             adjacent_nodes = adj_list.get(current_vertex);
+    //             for(int i = 0; i <= adjacent_nodes.length(); i++) queue.push(adjacent_nodes.pop());
+    //         }
+    //     }
+
+    //     return visited;
+        
+    // }
+    // ======================================================
+
+
+    // LinkedList<N> bfs(N k){
+    //     // N k == starting vertex
+
+    //     LinkedList<N> queue = LinkedList<N>();  // queue to be returned
+    //     LinkedList<N> adjacent_vertex_list = LinkedList<N>();
+    //     LinkedList<N> visited = LinkedList<N>();
+
+    //     visited.push(k);
+    //     adjacent_vertex_list = adj_list.get(k);
+    //     for(int i = 0; i < adjacent_vertex_list.length(); i++) queue.push(adjacent_vertex_list.pop());
+        
+    //     N current_vertex;
+    //     while(!queue.is_empty()){
+    //         current_vertex = queue.pop();
+    //         if(!visited.contains(current_vertex))visited.push(current_vertex);
+    //         adjacent_vertex_list = adj_list.get(current_vertex);
+    //         for(int i = 0; i < adjacent_vertex_list.length(); i++) queue.push(adjacent_vertex_list.pop());  
+    //     }
+
+    //     return visited;
+    // }
+
+    // LinkedList<N> bfs(N k){
+    //     LinkedList<N> visited = LinkedList<N>();
+    //     LinkedList<N> queue = LinkedList<N>();
+    //     LinkedList<N> adjacent_nodes = LinkedList<N>();
+
+    //     visited.push(k);
+    //     adjacent_nodes = adj_list.get(k);
+    //     for(int i = 0; i <= adjacent_nodes.length(); i++) queue.push(adjacent_nodes.pop());
+    //     N current_vertex;
+    //     while (!queue.is_empty()){
+    //         current_vertex = queue.pop();
+    //         if(!visited.contains(current_vertex)){
+    //             visited.push(current_vertex);
+    //             adjacent_nodes = adj_list.get(current_vertex);
+    //             for(int i = 0; i <= adjacent_nodes.length(); i++) queue.push(adjacent_nodes.pop());
+    //         }
+    //     }
+
+    //     return visited;
+        
+    // }
+    // LinkedList<N> bfs(N k){
+    //     LinkedList<N> visited = LinkedList<N>();
+    //     LinkedList<N> queue = LinkedList<N>();
+    //     LinkedList<N> adjacent_nodes = LinkedList<N>();
+    //     N current_vertex = k;
+
+    //     // visited.push(k);
+    //     // adjacent_nodes = adj_list.get(k);
+    //     // for(int i = 0; i < adjacent_nodes.length(); i++) queue.push(adjacent_nodes.pop());
+
+    //     while (!queue.is_empty()){
+    //         cout << "[*] "<<current_vertex << endl;
+    //         if(!visited.contains(current_vertex)){
+    //             visited.push(current_vertex);
+    //             adjacent_nodes = adj_list.get(current_vertex);
+    //             for(int i = 0; i < adjacent_nodes.length(); i++) queue.push(adjacent_nodes.pop());
+    //         }
+    //         current_vertex = queue.pop();
+    //     }
+
+    //     return visited;
+        
+    // }
 
 
     friend ostream& operator<<(ostream& os,const GraphAL<N> &dt){
