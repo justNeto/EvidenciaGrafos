@@ -56,9 +56,9 @@ class GraphAL{
     add vertices to hashtable in a vertices.
     set value as an empty LinkedList<N>
     */
-    bool set_vertices(int *keys){
+    bool set_vertices(int *keys, int size_array){
         LinkedList<N> empty_linked_list;
-        for(int i = 0; i < number_vertices-1;i++) adj_list.put(keys[i], empty_linked_list);
+        for(int i = 0; i < size_array;i++) adj_list.put(keys[i], empty_linked_list);
         return true;
     }
     bool check_vertex(N k){

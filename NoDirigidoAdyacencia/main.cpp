@@ -28,8 +28,8 @@ int main(){
     */
 
     GraphAL<char> grafo(4);
-    int vertex[4] = {'A', 'B', 'C', 'D'};
-    cout << "creating vertices: "<< grafo.set_vertices(vertex) << endl;
+    int vertex[7] = {'A', 'B', 'C', 'D', 'F', 'H', 'G'};
+    cout << "creating vertices: "<< grafo.set_vertices(vertex, sizeof(vertex)/sizeof(vertex[0])) << endl;
     cout << "live vertex: " << grafo.check_vertex('A')<< endl;
     cout << "key row list: " ; grafo.print_row('A'); cout<< "========" <<endl;
     cout << "Adding A-B edge: " <<grafo.add_edge('A', 'B') <<endl;
