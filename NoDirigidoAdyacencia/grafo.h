@@ -111,6 +111,21 @@ class GraphAL{
 
     }
 
+    LinkedList<N> auxiliar_visited = LinkedList<N>();
+    void auxiliar_dfs(N k){
+        auxiliar_visited.push(k); // make current node as discovered or pushed.
+        LinkedList<N> l = adj_list.get(k); // list of current key.
+        for(int i = 0; i < l.length(); i++) if(!auxiliar_visited.contains(l.get(i))) auxiliar_dfs(l.get(i));
+    }
+    LinkedList<N> dfs(N k){
+        LinkedList<N> reboot = LinkedList<N>();
+        auxiliar_visited = reboot;
+        auxiliar_dfs(k);
+        return auxiliar_visited;
+
+    }
+
+
     // =============================================
     // LinkedList<N> bfs(N k){
     //     LinkedList<N> visited = LinkedList<N>();
