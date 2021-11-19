@@ -33,8 +33,11 @@ int main(){
     cout << "live vertex: " << grafo.check_vertex('A')<< endl;
     cout << "key row list: " ; grafo.print_row('A'); cout<< "========" <<endl;
     cout << "Adding A-B edge: " <<grafo.add_edge('A', 'B') <<endl;
+    cout << "Adding A-B edge(second try): " <<grafo.add_edge('A', 'B') <<endl;
     cout << "key row A list: "; grafo.print_row('A');
     cout << "key row B list: "; grafo.print_row('B');
     cout << "adding vertex E: " << grafo.add_vertex('E') << endl;
+    cout << "=================" << endl;
+    cout << grafo << endl;
     return 0;
 }

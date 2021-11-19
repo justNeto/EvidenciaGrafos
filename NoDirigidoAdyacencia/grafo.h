@@ -87,4 +87,10 @@ class GraphAL{
         return true;
     }
 
+
+    friend ostream& operator<<(ostream& os,const GraphAL<N> &dt){
+        os << dt.adj_list;
+        return os; 
+    }
+
 };

@@ -150,6 +150,17 @@ class Hashtable{
         return true;                                                                      //O(1)
       }
 
+      friend ostream & operator << (ostream& os, const Hashtable<K, T> &ht){
+        LinkedList<T> emptyll = LinkedList<T>();
+        for(int i = 1; i < ht.size; i++){                                //O(n)
+          if(ht.tabla[i].key != 0){
+            os <<"i: " << i << " k: " << ht.tabla[i].key  << " v: " << ht.tabla[i].value;
+            os << endl;
+          }
+        }
+        return os;
+      }
+
 
       // ================================
       // additional methods for 

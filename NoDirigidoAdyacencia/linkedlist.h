@@ -19,16 +19,20 @@ NodeLL de la lista y el dato que se desea guardar.
 template<typename T>
 class NodeLL{
     private:
-        T data;
-        NodeLL<T>* next;
-        NodeLL<T>* prev;
         template<typename U>
         friend class LinkedList;
     public:
+        T data;
+        NodeLL<T>* prev;
+        NodeLL<T>* next;
         NodeLL(T data){
             this->data = data; //O(1)
             next = NULL;                                                                    //O(1)
             prev = NULL;                                                                   //O(1)
+        }
+        friend ostream& operator << (ostream & os, const NodeLL<T> & lista){
+          os << lista.data;
+          return os;
         }
 };
 
@@ -45,7 +49,8 @@ la lista ligada.
 */
 template<typename T>
 class LinkedList{
-  private:                                                           NodeLL<T> *head;              
+  private:                                                          
+    NodeLL<T> *head;              
     NodeLL<T> *last;                                                                          
     int lengthRecursive(NodeLL<T> * h ){
       if (h == NULL) // caso base                                                          //O(1)
@@ -100,6 +105,7 @@ class LinkedList{
       }
       cout << endl;                                                                     //O(1)
     }
+
     
     
     /*Completa y agrega complejidad de cada función*/
@@ -542,34 +548,41 @@ otros métodos*/
 
 
     // Sobrecarga de operador para imprimir la lista.
-    /*
-    friend ostream& operator<< (ostream & salida, const LinkedList<T>& lista){  //O(1)
-          NodeLL<T> * auxiliar = lista.head;                                                  //O(1)
-          while(auxiliar != NULL){                                                         //O(n)
-            salida << auxiliar->data << ":";                                               //O(1)
-            auxiliar = auxiliar->next;                                                     //O(1)
+    friend ostream& operator << (ostream & os, const LinkedList<T> & lista){
+          // if(lista.head == NULL) return os;
+          NodeLL<T> * auxiliar = lista.head;
+          if(auxiliar == NULL) return os;
+          while(auxiliar != NULL){
+            os << auxiliar->data << ": "; 
+            auxiliar = auxiliar->next; 
           }
-          return salida;                                                                   //O(1)
+          return os;                                                                   //O(1)
     }
-    */
-    friend ostream& operator << (ostream & salida, const LinkedList<T>& lista){
-      string opp;
-      if(lista.infected == 0) opp = "ok";     //O(1)
-      else if(lista.infected == 1) opp = "error";//O(1)
-      salida << lista.the_size << ":" << opp; //O(1)
-      return salida;                          
-    }
+
+    // void operator << ( const LinkedList<T>& lista){
+    //   lista.print();
+    // }
+
+
+    // friend ostream& operator << (ostream & salida, const LinkedList<T>& lista){
+    //   string opp;
+    //   if(lista.infected == 0) opp = "ok";     //O(1)
+    //   else if(lista.infected == 1) opp = "error";//O(1)
+    //   salida << lista.the_size << ":" << opp; //O(1)
+    //   return salida;                          
+    // }
     // sobrecarga de operador para comparar todos los valores
     // de una lista ligada con un entero.
-    friend LinkedList<T> operator <(const LinkedList<T>&lista, int value){ //O(1)
-      NodeLL<T> * auxiliar = lista.head;                                                     //O(1)
-      LinkedList<T> list;                                                                  //O(1)
-      while(auxiliar!=NULL){                                                              //O(n)
-        if(auxiliar->data.getLife()<value) list.addLast(auxiliar->data.getLife());       //O(1)
-        auxiliar = auxiliar->next;                                                      //O(1)
-      }
-      return list;                                                                      //O(1)
-    }
+    // friend LinkedList<T> operator <(const LinkedList<T>&lista, int value){ //O(1)
+    //   NodeLL<T> * auxiliar = lista.head;                                                     //O(1)
+    //   LinkedList<T> list;                                                                  //O(1)
+    //   while(auxiliar!=NULL){                                                              //O(n)
+    //     if(auxiliar->data.getLife()<value) list.addLast(auxiliar->data.getLife());       //O(1)
+    //     auxiliar = auxiliar->next;                                                      //O(1)
+    //   }
+    //   return list;                                                                      //O(1)
+    // }
+    
 
     bool operator < (const LinkedList<T> & lista){
       return lista.the_size > this->the_size;                                           //O(1)
