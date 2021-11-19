@@ -153,7 +153,7 @@ class Hashtable{
       friend ostream & operator << (ostream& os, const Hashtable<K, T> &ht){
         LinkedList<T> emptyll = LinkedList<T>();
         for(int i = 1; i < ht.size; i++){                                //O(n)
-          if(ht.tabla[i].key != 0){
+          if(ht.tabla[i].key != ht.null_hash.key){
             os <<"i: " << i << " k: " << ht.tabla[i].key  << " v: " << ht.tabla[i].value;
             os << endl;
           }

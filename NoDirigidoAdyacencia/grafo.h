@@ -56,7 +56,7 @@ class GraphAL{
     add vertices to hashtable in a vertices.
     set value as an empty LinkedList<N>
     */
-    bool set_vertices(int *keys, int size_array){
+    bool set_vertices(N *keys, int size_array){
         LinkedList<N> empty_linked_list;
         for(int i = 0; i < size_array;i++) adj_list.put(keys[i], empty_linked_list);
         return true;
@@ -85,6 +85,33 @@ class GraphAL{
         LinkedList<N> empty_linked_list;
         adj_list.put(k, empty_linked_list);
         return true;
+    }
+
+    LinkedList<N> bfs(N k){
+        // N k == starting vertex
+
+        LinkedList<N> queue = LinkedList<N>();  // queue to be returned
+        LinkedList<N> vertex_list = LinkedList<N>();
+        LinkedList<N> adjacent_vertices = LinkedList<N>();
+
+        queue.push(k);
+
+        N v, f;
+
+        while(!queue.is_empty()){
+
+            v = queue.pop();
+            vertex_list.push(v);
+
+            adjacent_vertices = get_row(v);
+            for(int i = 0; i < adjacent_vertices.length(); ++i){
+                f = adjacent_vertices.pop();
+                if(!vertex_list.contains(f)) queue.push(f);
+            }
+        }
+
+        return vertex_list;
+
     }
 
 

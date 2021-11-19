@@ -212,7 +212,7 @@ otros métodos*/
     quiere encontrar en la lista, como parámetro*/
     bool contains(T data){
       NodeLL<T> * auxiliar = head;                                                            //O(1)
-      while(auxiliar->next != NULL){                                                       //O(n)
+      while(auxiliar != NULL){                                                       //O(n)
         if(auxiliar->data == data) return true;                                          //O(1)
         auxiliar = auxiliar->next;                                                        //O(1)
       }
@@ -241,7 +241,6 @@ otros métodos*/
       NodeLL<T> * auxiliar = head;
       if(auxiliar == NULL) return false;
       if(auxiliar->data == dat) return true;
-      cout << "not found 2" << endl;
       while(auxiliar->next != NULL){
         auxiliar = auxiliar->next;
         if(auxiliar->data == dat) return true;
