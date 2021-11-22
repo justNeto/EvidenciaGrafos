@@ -1,7 +1,6 @@
 /*
 ===========================================================
 UNDIRECTED GRAPH WITH ADYENCY LIST - CLASS
-
 Héctor Miranda García   A01658845
 ===========================================================
 ===========================================================
@@ -12,7 +11,6 @@ STEPS FOR CREATING A GRAPH
     -   define size of hashtable in contructor and create the hashtabla.
     -   auxiliar linked list for thought the hashtable index linkedlist.
     -   add edge function.
-
 EXAMPLE (adyency_list/hashtable)
    key      linked list of connections/edges
     0   |   1
@@ -21,16 +19,13 @@ EXAMPLE (adyency_list/hashtable)
     3   |
     4   |
     5   |
-
     -> addEdge(vertex_0, vertex_1){
         - check if previous adge
         - add to linked list in hastable key
     }
 >> addEdge(0, 1)
-
 when adding and edge we should add two each vertex the opposite vertex.
 Also, first check if there is a previous edge connection.
-
 */
 template<typename N>
 class GraphAL{
