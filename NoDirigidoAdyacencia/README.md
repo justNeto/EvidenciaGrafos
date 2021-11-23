@@ -13,4 +13,6 @@ And we implemented this on the main.cpp, just like this:
 
 ![Example Graph](https://github.com/justNeto/EvidenciaGrafos/blob/master/NoDirigidoAdyacencia/images/example_1.PNG?raw=true)
 
+Finally after runned, we get this on the terminal:
 
+![Example Graph](https://github.com/justNeto/EvidenciaGrafos/blob/master/NoDirigidoAdyacencia/images/example_2.PNG?raw=true)
