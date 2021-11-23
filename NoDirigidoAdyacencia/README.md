@@ -7,6 +7,6 @@ We used some other methodsd developed during this semester, for creating the Gra
 ## Example
 For this example we are using the next Graph:
 
-![Example Graph](images/example.png)
+![Example Graph](https://github.com/justNeto/EvidenciaGrafos/blob/master/NoDirigidoAdyacencia/images/example.PNG)
 
 
