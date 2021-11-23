@@ -104,7 +104,8 @@ class GraphAL{
         adj_list.add_value_to_row(key_one, key_two);
         adj_list.add_value_to_row(key_two, key_one);
         return true;
-    }/*
+    }
+    /*
     This method adds a vertex to list.
     Recives the value of the vertex to be added.
     */

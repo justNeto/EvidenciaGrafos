@@ -3,9 +3,6 @@
 UNDIRECTED GRAPH WITH ADYENCY LIST - MAIN
 Héctor Miranda García   A01658845
 ===========================================================
-https://www.programiz.com/dsa/graph-adjacency-list
-https://gist.github.com/JackyLoo/b1f404c9239898d3fbc7
-https://www.youtube.com/watch?v=DBRW8nwZV-g&ab_channel=freeCodeCamp.org
 ===========================================================
 */
 #include <iostream>
@@ -26,9 +23,13 @@ int main(){
     A   B   C   D   E
     */
 
+
+   /*
+   For this implementation we didn't implemented dijkstra as instructed by professor.
+   Thisway we didn't added edge weighs, bacause ther are not neaded for any method in
+   our class.
+   */
     GraphAL<char> grafo(5);
-
-
     char vertex[5] = {'0', '1', '2', '3', '4'};
     cout << "creating vertices: "<< grafo.set_vertices(vertex, sizeof(vertex)/sizeof(vertex[0])) << endl;
     grafo.add_edge('0', '1');
