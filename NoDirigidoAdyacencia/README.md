@@ -9,5 +9,8 @@ For this example we are using the next Graph:
 
 ![Example Graph](https://github.com/justNeto/EvidenciaGrafos/blob/master/NoDirigidoAdyacencia/images/example.PNG?raw=true)
 
+And we implemented this on the main.cpp, just like this:
+
+![Example Graph](https://github.com/justNeto/EvidenciaGrafos/blob/master/NoDirigidoAdyacencia/images/example_1.PNG?raw=true)
 
 
