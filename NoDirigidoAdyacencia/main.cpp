@@ -42,19 +42,18 @@ int main(){
     // grafo.add_edge('A', 'D');
     // cout << grafo << endl;
     // cout << grafo.bfs('A') << endl;
-    char vertex[7] = {'A', 'B', 'C', 'D', 'H', 'T', 'R'};
+    
+    char vertex[5] = {'0', '1', '2', '3', '4'};
     cout << "creating vertices: "<< grafo.set_vertices(vertex, sizeof(vertex)/sizeof(vertex[0])) << endl;
-    grafo.add_edge('A', 'H');
-    grafo.add_edge('H', 'T');
-    grafo.add_edge('H', 'B');
-    grafo.add_edge('H', 'D');
-    grafo.add_edge('H', 'R');
-    grafo.add_edge('D', 'B');
-    grafo.add_edge('C', 'D');
-    grafo.add_edge('C', 'R');
+    grafo.add_edge('0', '1');
+    grafo.add_edge('2', '0');
+    grafo.add_edge('1', '2');
+    grafo.add_edge('1', '3');
+    grafo.add_edge('2', '4');
+    grafo.add_edge('3', '4');
     cout << grafo << endl;
-    cout << grafo.bfs('R') << endl;
-    cout << grafo.dfs('R')<<endl;
+    cout << grafo.bfs('2') << endl;
+    cout << grafo.dfs('2')<<endl;
 
     return 0;
 }
