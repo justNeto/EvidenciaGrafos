@@ -69,7 +69,7 @@ int main(){
 
 	// Dijkstra algorithm in action
 	ejemplo2.path_dijkstra('a', 'g');
-	ejemplo.path_dijkstra(0,6);
+	ejemplo.path_dijkstra(5,6);
 
 	return 0;
 }
