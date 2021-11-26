@@ -28,15 +28,16 @@ class GrafoLA_Dirigido{
 		}
 
 		// Adding vertex with lable 'vertex' O(1)
-		void add_vertex(D vertex){
-			this->tablaGrafos.put(vertex, new vector<pair<D,int>>());
+		bool add_vertex(D vertex){
+			return this->tablaGrafos.put(vertex, new vector<pair<D,int>>());
 		}
 
 		// Adding edge from vertex 'a' to 'b' with a weight O(1)
-		void add_edge(D a, D b, int weight){
+		bool add_edge(D a, D b, int weight){
 			vector<pair<D,int>>* edges = this->tablaGrafos.get(a);
 			pair<D,int> edge = pair<D,int>(b,weight);
 			edges->push_back(edge);
+			return true;
 		}
 
 		// Geting index where 'vertex' is located in 'edges' O(n)
@@ -107,5 +108,43 @@ class GrafoLA_Dirigido{
 				}
 				cout << endl;
 			}
+		}
+
+		// O(n)
+		bool has_vertex (list<D> list, D vertex){
+			for(D v : list){
+				if (v == vertex){
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		// O(n^2)
+		list<D> bfs(){
+			list<D> res;
+			vector<D> vertex = tablaGrafos.keys();
+			for (D i : vertex){
+				vector<pair<D, int>>* edges = tablaGrafos.get(i);
+				for(int j  = 0; j < edges->size(); j++){
+					if (has_vertex(res, i)){
+						res.push_back(i);
+					}
+					if (has_vertex(res, edges->at(j).first)){
+						res.push_back(i);
+					}
+				}
+			}
+			return res;
+		}
+
+		// O(n)
+		list<D> dfs(){
+			list<D> res;
+			vector<D> vertex = tablaGrafos.keys();
+			for (D i : vertex){
+				res.push_back(i);
+			}
+			return res;
 		}
 };
