@@ -31,13 +31,13 @@ template<typename N>
 class GraphAL{
     private:
     int number_vertices;
-    Hashtable<N, LinkedList<N>> adj_list =  Hashtable<N, LinkedList<N>>();
+    Hashtable<N, LinkedList<N>> adj_list =  Hashtable<N, LinkedList<N>>(); // O(1)
     public:
     /*
     Undirected listed graph constructor.
     Recives number of vertices to be added or an aproximate.
     */
-    GraphAL(int number_vertices){
+    GraphAL(int number_vertices){   //O(1)
         this->number_vertices = number_vertices;
         int initial_table_size = (int)pow(3, number_vertices); 
         adj_list = Hashtable<N, LinkedList<N>>(initial_table_size);              // creating hastable accoring to size
@@ -45,10 +45,11 @@ class GraphAL{
     /*
     Default constructor, sets the number o vertices to cero.
     */
-    GraphAL(){
+    GraphAL(){  // O(1)
       this->number_vertices = 0;
     }
-    int get_number_vertices(){
+
+    int get_number_vertices(){  // O(n)
         int num_vertices = adj_list.the_size();
         if(number_vertices != num_vertices) return num_vertices;
         return number_vertices;
@@ -59,7 +60,7 @@ class GraphAL{
     Recives a list with the vertices to be added and the size of array.
     This makes it easy to add vertices.
     */
-    bool set_vertices(N *keys, int size_array){
+    bool set_vertices(N *keys, int size_array){     // O(n)
         LinkedList<N> empty_linked_list;
         for(int i = 0; i < size_array;i++) adj_list.put(keys[i], empty_linked_list);
         return true;
@@ -68,21 +69,21 @@ class GraphAL{
     This method checks the existance of some vertex in the list.
     Recives the key or value to be searched.
     */
-    bool check_vertex(N k){
+    bool check_vertex(N k){     // O(n)
         return adj_list.contains_key(k);
     }
     /*
     This method returns a row.
     Key or value as parameter to get the selected row
     */
-    LinkedList<N> get_row(N k){
+    LinkedList<N> get_row(N k){     // O(n)
         return adj_list.get(k);
     }
     /*
     Checks if the list of adjacent vertex in some key is empty or not.
     Recives key or value as parameter.
     */
-    bool empty_row(N k){
+    bool empty_row(N k){        // O(n)
         if(adj_list.get(k).is_empty()) return true;
         return false;
     }
@@ -90,7 +91,7 @@ class GraphAL{
     This method prints the row, depending on inputen 
     key or value as parameter.
     */
-    void print_row(N k){
+    void print_row(N k){        // O(n)
         adj_list.get(k).print();
     }
     /*
@@ -98,7 +99,7 @@ class GraphAL{
     Recives the two value to be linked as parameters.
     returns a boolean condition depending if there was a failure or not
     */
-    bool add_edge(N key_one, N key_two){
+    bool add_edge(N key_one, N key_two){        // O(n)
         if(adj_list.contains_key(key_one)== false) return false;
         if(adj_list.live_edge(key_one, key_two)==true) return true;
         adj_list.add_value_to_row(key_one, key_two);
@@ -109,7 +110,7 @@ class GraphAL{
     This method adds a vertex to list.
     Recives the value of the vertex to be added.
     */
-    bool add_vertex(N k){
+    bool add_vertex(N k){       // O(n)
         LinkedList<N> empty_linked_list;
         adj_list.put(k, empty_linked_list);
         return true;
@@ -119,7 +120,7 @@ class GraphAL{
     a linked list with all the value on the List, whithout repetitions.
     Recives the stating vertex as parameter.
     */
-    LinkedList<N> bfs(N k){
+    LinkedList<N> bfs(N k){     // O(n^2)
         // N k == starting vertex
         LinkedList<N> queue = LinkedList<N>();  // queue to be returned
         LinkedList<N> vertex_list = LinkedList<N>();
@@ -144,12 +145,12 @@ class GraphAL{
     Recives the starting vertex value.
     */
     LinkedList<N> auxiliar_visited = LinkedList<N>();
-    void auxiliar_dfs(N k){
+    void auxiliar_dfs(N k){         // O(n)
         auxiliar_visited.push(k); // make current node as discovered or pushed.
         LinkedList<N> l = adj_list.get(k); // list of current key.
         for(int i = 0; i < l.length(); i++) if(!auxiliar_visited.contains(l.get(i))) auxiliar_dfs(l.get(i));
     }
-    LinkedList<N> dfs(N k){
+    LinkedList<N> dfs(N k){         // O(n)
         LinkedList<N> reboot = LinkedList<N>();
         auxiliar_visited = reboot;
         auxiliar_dfs(k);
@@ -159,7 +160,7 @@ class GraphAL{
     /*
     Ostream operator overloading for printing the graph
     */
-    friend ostream& operator<<(ostream& os,const GraphAL<N> &dt){
+    friend ostream& operator<<(ostream& os,const GraphAL<N> &dt){       // O(n^2)
         os << dt.adj_list;
         return os; 
     }
