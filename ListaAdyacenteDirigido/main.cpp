@@ -4,7 +4,7 @@
 
 int main(){	
 
-	GrafoLA_Dirigido<int> ejemplo = GrafoLA_Dirigido<int>(7);
+	GrafoMA_NoDirigido<int> ejemplo = GrafoMA_NoDirigido<int>(7);
 
 	for (int i = 0; i < 7; i++){
 		ejemplo.add_vertex(i);
@@ -34,7 +34,7 @@ int main(){
 	ejemplo.path_dijkstra(0,6);
 	cout << endl;
 
-	GrafoLA_Dirigido<char> ejemplo2 = GrafoLA_Dirigido<char>(7);
+	GrafoMA_NoDirigido<char> ejemplo2 = GrafoMA_NoDirigido<char>(7);
 
 	ejemplo2.add_vertex('a');
 	ejemplo2.add_vertex('b');
@@ -66,10 +66,5 @@ int main(){
 
 	ejemplo2.print();
 	cout << endl;
-
-	// Dijkstra algorithm in action
-	ejemplo2.path_dijkstra('a', 'g');
-	ejemplo.path_dijkstra(5,6);
-
 	return 0;
 }
