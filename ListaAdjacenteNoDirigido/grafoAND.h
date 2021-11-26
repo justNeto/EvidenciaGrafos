@@ -16,13 +16,13 @@ bool sortbysec(const pair<int,int> &a,
 }
 
 template<typename D>
-class GrafoMA_NoDirigido{
+class GrafoLA_NoDirigido{
 	private:
 		int numVertice;
 		Hashtable<D,vector<pair<D,int>>*> tablaGrafos;
 	public:
 		// Constructor O(n)
-		GrafoMA_NoDirigido<D>(int numVertice){
+		GrafoLA_NoDirigido<D>(int numVertice){
 			this->numVertice = numVertice;
 			this->tablaGrafos = Hashtable<D,vector<pair<D,int>>*>(numVertice);
 		}
@@ -36,10 +36,10 @@ class GrafoMA_NoDirigido{
 		bool add_edge(D a, D b, int weight) {
 			vector<pair<D,int>>* edgesGo = this->tablaGrafos.get(a); // Gets the empty Hastable vector ptr object
 			pair<D,int> edge = pair<D,int>(b,weight);
-      edgesGo->push_back(edge); // Sets edge from a to b
+      			edgesGo->push_back(edge); // Sets edge from a to b
 
-      vector<pair<D,int>>* edgesBack = this->tablaGrafos.get(b);
-      pair<D,int> edge = pair<D,int>(a,weight);
+      			vector<pair<D,int>>* edgesBack = this->tablaGrafos.get(b);
+      			pair<D,int> edge = pair<D,int>(a,weight);
 			edgesBack->push_back(edge); // Sets edge from b to a
 			return true;
 		}
